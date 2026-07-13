@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; }
+    ::selection { background: #8A1414; color: #D2CCBF; }
+    a { text-decoration: none; }
+  </style>
+</helmet>
+
+<div style="background:#D2CCBF; min-height:100vh; overflow-x:hidden;">
+
+  <!-- Utility bar -->
+  <div style="background:#151414; color:#7a7468; font-size:13px; letter-spacing:0.1em; padding:9px 56px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+    <span>УЛ. ЧАЙКОВСКОГО, Д. 11/2, ЛИТ. А</span>
+    <span>+7 916 278 1979</span>
+  </div>
+
+  <!-- Nav -->
+  <header style="position:sticky; top:0; z-index:100; background:rgba(21,20,20,0.94); backdrop-filter:blur(12px); padding:20px 56px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; border-bottom:1px solid #272323;">
+    <a href="#" style="display:flex; align-items:center; gap:14px;">
+      <img src="assets/logo-eye.png" alt="" style="width:36px; height:36px; object-fit:contain; flex-shrink:0;">
+      <div style="font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#7a7468; line-height:1.4;">
+        <strong style="display:block; font-weight:400; color:#D2CCBF; font-size:13px; letter-spacing:0.12em;">Музей</strong>
+        Сверхъестественного
+      </div>
+    </a>
+
+    <nav style="display:flex; gap:40px; flex-wrap:wrap;">
+      <a href="#mirror" style="font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#7a7468;" style-hover="color:#D2CCBF;">Новое</a>
+      <a href="#expo" style="font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#7a7468;" style-hover="color:#D2CCBF;">Экспозиции</a>
+      <a href="#about" style="font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#7a7468;" style-hover="color:#D2CCBF;">О музее</a>
+      <a href="#visit" style="font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#7a7468;" style-hover="color:#D2CCBF;">Посещение</a>
+    </nav>
+
+    <a href="#visit" style="font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:#D2CCBF; padding:10px 24px; border:1px solid #8A1414;" style-hover="background:#8A1414;">Как нас найти</a>
+  </header>
+
+  <!-- Hero -->
+  <section style="position:relative; height:88vh; min-height:560px; width:100%; overflow:hidden;">
+    <div style="position:absolute; inset:0;">
+      <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-photo" shape="rect" fit="cover" placeholder="Фото здания музея" hint-size="100%,100%" style="width:100%; height:100%;"></x-import>
+    </div>
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(21,20,20,0.3) 0%, rgba(21,20,20,0.5) 55%, rgba(21,20,20,0.92) 100%); pointer-events:none;"></div>
+    
+    <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:0 56px 72px; pointer-events:none;">
+      <div style="font-size:12px; letter-spacing:0.35em; text-transform:uppercase; color:#8A1414; margin-bottom:26px; display:flex; align-items:center; gap:18px;">
+        <span style="display:block; width:36px; height:1px; background:#8A1414;"></span>
+        Санкт-Петербург
+      </div>
+      <h1 style="font-size:clamp(52px,10vw,140px); font-weight:300; color:#D2CCBF; margin:0; line-height:0.92; letter-spacing:-0.02em;">Музей<br><span style="color:#a19a8b; font-style:italic;">Сверхъестественного</span></h1>
+      <div style="margin-top:48px; display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:32px; pointer-events:auto;">
+        <p style="font-size:18px; font-style:italic; color:#a19a8b; letter-spacing:0.02em; max-width:360px; line-height:1.6; margin:0;">История мистики и потустороннего — пространство, где реальность встречает тайну</p>
+        <div style="display:flex; gap:20px; align-items:center;">
+          <a href="#about" style="font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#a19a8b; padding:14px 32px; border:1px solid #33302c;" style-hover="border-color:#7a7468; color:#D2CCBF;">О музее</a>
+          <a href="#expo" style="font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#D2CCBF; padding:14px 32px; border:1px solid #8A1414;" style-hover="background:#8A1414;">Экспозиции</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured new exhibit -->
+  <section id="mirror" style="display:grid; grid-template-columns:1fr 1fr; min-height:560px;">
+    <div style="min-width:0; min-height:0;">
+      <image-slot id="mirror-photo" shape="rect" fit="cover" placeholder="Фото зеркала де Дюрфор" style="width:100%; height:100%;"></image-slot>
+    </div>
+    <div style="min-width:0; min-height:0; position:relative;">
+      <image-slot id="mirror-bg" shape="rect" fit="cover" placeholder="Фоновое изображение" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+      <div style="position:absolute; inset:0; background:rgba(21,20,20,0.6); pointer-events:none;"></div>
+      <div style="position:relative; height:100%; display:flex; align-items:center; padding:80px 64px; pointer-events:none;">
+        <div style="max-width:620px; pointer-events:auto;">
+          <div style="font-size:19px; letter-spacing:0.28em; text-transform:uppercase; color:#8A1414; margin-bottom:28px; display:flex; align-items:center; gap:18px;">
+            <span style="display:block; width:36px; height:1px; background:#8A1414;"></span>
+            Впервые в открытой экспозиции
+          </div>
+          <h2 style="font-size:64px; font-weight:300; color:#D2CCBF; margin:0 0 14px; line-height:1.05; letter-spacing:-0.01em;">Зеркало де Дюрфор</h2>
+          <div style="font-size:19px; font-style:italic; color:#8a8071; margin-bottom:32px; letter-spacing:0.02em;">Франция, Версаль · предположительно венецианская мастерская · 1784 г.</div>
+          <p style="font-size:20px; line-height:1.75; color:#a19a8b; margin:0 0 22px; border-left:1px solid #8A1414; padding-left:24px;">Ручное зеркало из собрания семьи де Дюрфор — единственный предмет, уцелевший при пожаре 1758 года, уничтожившем родовой дом.</p>
+          <p style="font-size:20px; line-height:1.75; color:#a19a8b; margin:0;">Приобретено музеем на международном аукционе в 2026 году. Впервые представлено публике в России.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exhibitions -->
+  <section id="expo" style="padding:120px 56px 100px; max-width:1400px; margin:0 auto;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px; padding-bottom:36px; border-bottom:1px solid #c3bcac; margin-bottom:0;">
+      <div>
+        <div style="font-size:11px; letter-spacing:0.35em; text-transform:uppercase; color:#8A1414; margin-bottom:18px; display:flex; align-items:center; gap:16px;">
+          <span style="display:block; width:32px; height:1px; background:#8A1414;"></span>
+          Постоянная экспозиция
+        </div>
+        <h2 style="font-size:clamp(34px,4vw,58px); font-weight:300; color:#151414; margin:0; letter-spacing:-0.01em; line-height:1.05;">Три собрания <em style="font-style:italic; color:#5f5a4f;">проклятого</em></h2>
+      </div>
+      <p style="font-size:14px; font-style:italic; color:#5f5a4f; margin:0;">3 постоянных зала</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); border-left:1px solid #c3bcac;">
+
+      <div style="border-right:1px solid #c3bcac; border-bottom:1px solid #c3bcac; padding:40px 36px; border-left:2px solid rgba(138,20,20,0.3);" style-hover="background:rgba(21,20,20,0.03); border-left-color:#8A1414;">
+        <div style="font-size:11px; letter-spacing:0.25em; color:#8f8873; margin-bottom:24px;">01</div>
+        <image-slot id="expo-papers" shape="rect" fit="cover" placeholder="Проклятые бумаги" style="width:100%; height:280px; display:block; margin-bottom:26px;"></image-slot>
+        <h3 style="font-size:27px; font-weight:300; color:#151414; margin:0 0 12px; letter-spacing:-0.005em;">Проклятые бумаги</h3>
+        <p style="font-size:17px; line-height:1.6; color:#5f5a4f; margin:0;">Письма, дневники и рукописи, за которыми тянется след необъяснимых судеб их владельцев.</p>
+      </div>
+
+      <div style="border-right:1px solid #c3bcac; border-bottom:1px solid #c3bcac; padding:40px 36px; border-left:2px solid rgba(138,20,20,0.3);" style-hover="background:rgba(21,20,20,0.03); border-left-color:#8A1414;">
+        <div style="font-size:11px; letter-spacing:0.25em; color:#8f8873; margin-bottom:24px;">02</div>
+        <image-slot id="expo-objects" shape="rect" fit="cover" placeholder="Проклятые предметы" style="width:100%; height:280px; display:block; margin-bottom:26px;"></image-slot>
+        <h3 style="font-size:27px; font-weight:300; color:#151414; margin:0 0 12px; letter-spacing:-0.005em;">Проклятые предметы</h3>
+        <p style="font-size:17px; line-height:1.6; color:#5f5a4f; margin:0;">Вещи из плоти и металла, перешедшие из рук в руки вместе со своим злым роком.</p>
+      </div>
+
+      <div style="border-right:1px solid #c3bcac; border-bottom:1px solid #c3bcac; padding:40px 36px; border-left:2px solid rgba(138,20,20,0.3);" style-hover="background:rgba(21,20,20,0.03); border-left-color:#8A1414;">
+        <div style="font-size:11px; letter-spacing:0.25em; color:#8f8873; margin-bottom:24px;">03</div>
+        <image-slot id="expo-tech" shape="rect" fit="cover" placeholder="Проклятая техника" style="width:100%; height:280px; display:block; margin-bottom:26px;"></image-slot>
+        <h3 style="font-size:27px; font-weight:300; color:#151414; margin:0 0 12px; letter-spacing:-0.005em;">Проклятая техника</h3>
+        <p style="font-size:17px; line-height:1.6; color:#5f5a4f; margin:0;">Механизмы и приборы, чья работа однажды перестала подчиняться законам физики.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" style="background:#151414; padding:100px 56px;">
+    <div style="max-width:760px; margin:0 auto; text-align:center;">
+      <div style="font-size:11px; letter-spacing:0.35em; text-transform:uppercase; color:#8A1414; margin-bottom:22px; display:flex; align-items:center; justify-content:center; gap:16px;">
+        <span style="display:block; width:32px; height:1px; background:#8A1414;"></span>
+        О музее
+        <span style="display:block; width:32px; height:1px; background:#8A1414;"></span>
+      </div>
+      <h2 style="font-size:clamp(30px,3.6vw,48px); font-weight:300; color:#D2CCBF; margin:0 0 28px; line-height:1.2;">Свидетели того, <em style="font-style:italic; color:#8a8071;">что не объяснить</em></h2>
+      <p style="font-size:18px; line-height:1.75; color:#a19a8b; margin:0 0 26px;">Мы собираем предметы, документы и механизмы, вокруг которых складывались легенды о проклятиях и потусторонних силах — и рассказываем их подлинную историю.</p>
+      <a href="#visit" style="display:inline-block; font-size:13px; letter-spacing:0.15em; text-transform:uppercase; color:#D2CCBF; border-bottom:1px solid #8A1414; padding-bottom:6px;" style-hover="color:#8A1414;">Как нас найти →</a>
+    </div>
+  </section>
+
+  <!-- Visit info -->
+  <section id="visit" style="padding:120px 56px; max-width:1200px; margin:0 auto;">
+    <div style="font-size:11px; letter-spacing:0.35em; text-transform:uppercase; color:#8A1414; margin-bottom:22px; display:flex; align-items:center; gap:16px;">
+      <span style="display:block; width:32px; height:1px; background:#8A1414;"></span>
+      Информация
+    </div>
+    <h2 style="font-size:clamp(34px,4vw,58px); font-weight:300; color:#151414; margin:0 0 64px; letter-spacing:-0.01em;">Посещение</h2>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px;">
+      <div>
+        <div style="font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:#8f8873; border-bottom:1px solid #c3bcac; padding-bottom:16px; margin-bottom:6px;">Часы работы</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-bottom:1px solid #c3bcac; font-size:18px;">
+          <span style="color:#5f5a4f;">Среда — Воскресенье</span>
+          <strong style="font-weight:300; color:#151414;">12:00 — 21:00</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-bottom:1px solid #c3bcac; font-size:18px;">
+          <span style="color:#5f5a4f;">Понедельник, Вторник</span>
+          <strong style="font-weight:300; color:#8f8873;">Выходной</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-bottom:1px solid #c3bcac; font-size:18px;">
+          <span style="color:#5f5a4f;">Билеты</span>
+          <strong style="font-weight:300; color:#151414;">Касса и сайт</strong>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:#8f8873; border-bottom:1px solid #c3bcac; padding-bottom:16px; margin-bottom:24px;">Адрес</div>
+        <p style="font-size: 24px; font-style: italic; font-weight: 300; color: #151414; line-height: 1.5; margin: 0; width: 574px; height: 124px">ул. Чайковского,<br>дом 11/2, лит. А</p>
+        <div style="margin-top:36px; font-size:40px; font-weight:300; letter-spacing:0.01em; line-height:1;">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contacts" style="background:#151414; color:#7a7468; padding:80px 56px 0;">
+    <div style="display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:48px; max-width:1200px; margin:0 auto; padding-bottom:56px;">
+      <div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+          <img src="assets/logo-eye.png" alt="" style="width:32px; height:32px; object-fit:contain; flex-shrink:0;">
+          <span style="font-size:18px; letter-spacing:0.08em; color:#D2CCBF; font-weight:300;">Музей Сверхъестественного</span>
+        </div>
+        <p style="font-size:16px; font-style:italic; line-height:1.6; margin:0; color:#7a7468;">История мистики и потустороннего</p>
+      </div>
+      <div>
+        <div style="font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:#8f8873; margin-bottom:20px;">Контакты</div>
+        <p style="font-size:16px; line-height:1.8; margin:0;">ул. Чайковского, дом 11/2, лит. А</p>
+        <a href="tel:+79162781979" style="display:block; margin-top:12px; font-size:19px; color:#D2CCBF; font-weight:300;" style-hover="color:#8A1414;">+7 916 278 1979</a>
+      </div>
+      <div>
+        <div style="font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:#8f8873; margin-bottom:20px;">Разделы</div>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <a href="#expo" style="font-size:16px; color:#7a7468;" style-hover="color:#D2CCBF;">Экспозиции</a>
+          <a href="#about" style="font-size:16px; color:#7a7468;" style-hover="color:#D2CCBF;">О музее</a>
+          <a href="#visit" style="font-size:16px; color:#7a7468;" style-hover="color:#D2CCBF;">Посещение</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid #272323; max-width:1200px; margin:0 auto; padding:26px 0; font-size:13px; letter-spacing:0.05em; display:flex; justify-content:space-between; color:#5f5a4f; flex-wrap:wrap; gap:10px;">
+      <span>© Музей Сверхъестественного. Все права защищены.</span>
+      <span>Санкт-Петербург, Россия</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>
